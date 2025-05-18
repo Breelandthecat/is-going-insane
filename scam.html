@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BuyN0wZ™ - Limited Offer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff9fc;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    .logo {
+      font-size: 40px;
+      font-weight: bold;
+      padding: 20px;
+      cursor: pointer;
+      display: inline-block;
+      transition: transform 2s ease;
+      position: fixed;
+      top: 0;
+      left: 20px;
+      z-index: 9999;
+    }
+
+    .shake-logo {
+      animation: violentShake 1s infinite alternate;
+    }
+
+    @keyframes violentShake {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(-20deg); }
+      50% { transform: rotate(20deg); }
+      75% { transform: rotate(-20deg); }
+      100% { transform: rotate(20deg); opacity: 0; }
+    }
+
+    header {
+      padding: 60px 20px 20px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .title .emoji {
+      font-size: 40px;
+    }
+
+    .subheading {
+      font-size: 20px;
+      color: green;
+      margin-bottom: 10px;
+    }
+
+    .product-imgs {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin: 30px 0;
+    }
+
+    .product-imgs img {
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      border: 2px dashed red;
+      background: #fff;
+    }
+
+    .buy-section {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .buy-btn {
+      margin-top: 20px;
+      background: linear-gradient(to right, #ff0066, #ff6699);
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      font-size: 24px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 20px rgba(255, 0, 85, 0.5);
+    }
+
+    .buy-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(255, 0, 85, 0.7);
+    }
+
+    .urgency {
+      color: red;
+      font-size: 18px;
+      margin-top: 15px;
+    }
+
+    .timer {
+      font-size: 18px;
+      color: red;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 40px 20px;
+      border-top: 2px solid #ffe6f0;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .reviews-ticker {
+      white-space: nowrap;
+      overflow: hidden;
+      background: #fff0f5;
+      padding: 10px;
+      position: relative;
+    }
+
+    .review-line {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll 60s linear infinite;
+      font-size: 16px;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    footer {
+      padding: 20px;
+      background: #fff0f5;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .corrupted {
+      background: repeating-linear-gradient(45deg, red, blue 10px, green 20px);
+      color: yellow;
+      text-shadow: 1px 1px 2px black;
+      transform: skewY(-2deg);
+      padding: 30px;
+    }
+
+    #blackout {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      color: white;
+      font-family: 'Courier New', monospace;
+      padding: 20px;
+      overflow-y: auto;
+      z-index: 999999;
+    }
+
+    .line {
+      margin-bottom: 8px;
+    }
+
+    .crazy {
+      color: #ff4d4d;
+      font-size: 20px;
+      display: inline-block;
+    }
+
+    .crazy span {
+      display: inline-block;
+      animation: subtleShake 0.3s infinite alternate;
+    }
+
+    @keyframes subtleShake {
+      0%   { transform: translate(0px, 0px); }
+      25%  { transform: translate(-0.5px, 0.5px); }
+      50%  { transform: translate(0.5px, -0.5px); }
+      75%  { transform: translate(-0.5px, -0.5px); }
+      100% { transform: translate(0.5px, 0.5px); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="logo" onclick="breakLogo(this)">BuyN0wZ™</div>
+
+<header>
+  <div class="title">🎁🔥 Mega Clearance Sale 🚀🎉</div>
+  <div class="subheading">Limited Time - Up to 99% OFF</div>
+  <div class="urgency">⚠️ 3 left in stock — 83 people viewing now!</div>
+  <div class="timer" id="timer">Sale ends in 30:00</div>
+</header>
+
+<div class="product-imgs">
+  <img src="broken1.jpg" alt="COULDN'T GET IMAGE">
+  <img src="missing2.png" alt="COULDN'T GET IMAGE">
+  <img src="error3.webp" alt="COULDN'T GET IMAGE">
+</div>
+
+<div class="buy-section">
+  <button class="buy-btn" onclick="startAwarenessMessage()">BUY NOW</button>
+</div>
+
+<div class="section">
+  <h2>Shipping Info 📦</h2>
+  <p>We ship worldwide within 3 minutes of ordering...</p>
+</div>
+
+<div class="section">
+  <h2>Why Choose Us?</h2>
+  <ul>
+    <li>✅ Verified by 19,000 fake reviewers</li>
+    <li>🔐 McAfee Trusted + Norton Certified (we think?)</li>
+    <li>📉 Prices drop every 4 seconds!</li>
+    <li>💳 Fully secure: powered by “TotallyLegitPayments Inc.”</li>
+  </ul>
+</div>
+
+<div class="section reviews-ticker">
+  <div class="review-line">
+    ⭐⭐⭐⭐⭐ "Got my PS5 in 2 mins!" 🚀 — Jane &nbsp;&nbsp;
+    ⭐⭐⭐⭐⭐ "Can’t believe it’s real!!!" 😱 — Mike &nbsp;&nbsp;
+    ⭐⭐⭐⭐ "Even my grandma got one" 😂 — Liz &nbsp;&nbsp;
+    ⭐⭐⭐⭐⭐ "Best site ever!!!" — Cody &nbsp;&nbsp;
+    ⭐⭐⭐⭐⭐ "Ordered 10. All arrived." 🧠 — Zack &nbsp;&nbsp;
+    ⭐⭐⭐⭐ "Everything works!?" — Mysterious Buyer &nbsp;&nbsp;
+    ⭐⭐⭐⭐⭐ "Too good to be legal lol" — HackerMan &nbsp;&nbsp;
+    ⭐⭐⭐⭐ "Hoping I don’t go to jail" 😅 — Steve &nbsp;&nbsp;
+    ⭐⭐⭐⭐⭐ "OMG IT'S MAGIC" — Dana &nbsp;&nbsp;
+    ⭐⭐⭐⭐⭐ "🤑🤑🤑🤑🤑🤑" — Everyone &nbsp;&nbsp;
+    ⭐⭐⭐⭐⭐ "Got my PS5 in 2 mins!" 🚀 — Jane &nbsp;&nbsp;
+  </div>
+</div>
+
+<footer>
+  Copyrighted!!! Do not impersonate.
+</footer>
+
+<div id="blackout"><div id="terminal"></div></div>
+
+<script>
+const terminal = document.getElementById("terminal");
+const blackout = document.getElementById("blackout");
+const timerEl = document.getElementById("timer");
+
+const lines = [
+  { text: "Woah", special: true, pause: 1000 },
+  { text: "There!", special: true, pause: 2000 },
+  { text: "You could've got scammed. ", special: false, pause: 2000 },
+  { text: "We don't actually wanna harm you...", special: false, pause: 2000 },
+  { text: "Obvious scams = too many emojis, etc.", special: false, pause: 2000 },
+  { text: "Fake badges = red flag. DONT BUY.", special: false, pause: 2000 },
+  { text: "Just be careful. The internet can be dangerous.", special: false, pause: 0 }
+];
+
+function wrapSubtleShake(text) {
+  return text.split('').map(char => `<span>${char}</span>`).join('');
+}
+
+function typeLine(text, special) {
+  return new Promise(resolve => {
+    const lineDiv = document.createElement("div");
+    lineDiv.classList.add("line");
+    terminal.appendChild(lineDiv);
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i > text.length) {
+        clearInterval(interval);
+        resolve();
+        return;
+      }
+      const currentText = text.slice(0, i);
+      if (special) {
+        lineDiv.innerHTML = `<span class="crazy">${wrapSubtleShake(currentText)}</span>`;
+      } else {
+        lineDiv.textContent = currentText;
+      }
+      i++;
+    }, 30);
+  });
+}
+
+async function runTerminal() {
+  blackout.style.display = 'block';
+  terminal.innerHTML = '';
+  for (const line of lines) {
+    await typeLine(line.text, line.special);
+    await new Promise(resolve => setTimeout(resolve, line.pause));
+  }
+}
+
+function startAwarenessMessage() {
+  runTerminal();
+}
+
+function triggerScamReveal() {
+  document.body.innerHTML = `
+    <div class="corrupted">
+      <h1>ORDER NOW!!! (please don't)</h1>
+      <p>I (actually) CANT BELIEVE ITS REAL!!!!! (cause it isn't)</p>
+      <p style="font-size: 20px; background: white; color: black; padding: 10px; border: 2px solid red;">
+        This is your normal space of regular text. It’s a red flag when a sketchy site throws in “normal” looking bits to look safe.
+      </p>
+    </div>
+    <div id="blackout"><div id="terminal"></div></div>
+  `;
+  blackout.style.display = 'block';
+  runTerminal();
+}
+
+function breakLogo(el) {
+  el.classList.add("shake-logo");
+  setTimeout(() => {
+    el.textContent = "DONTBUY";
+    startAwarenessMessage();
+  }, 3000);
+}
+
+let timeLeft = 1800;
+setInterval(() => {
+  if (timeLeft <= 0) {
+    triggerScamReveal();
+  } else {
+    const mins = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+    const secs = (timeLeft % 60).toString().padStart(2, '0');
+    timerEl.textContent = `Sale ends in ${mins}:${secs}`;
+    timeLeft--;
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
